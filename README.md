@@ -23,3 +23,19 @@ docker exec -it absinthe_tutorial /bin/bash
 mix archive.install https://github.com/phoenixframework/archives/raw/master/phoenix_new.ez
 ```
 
+### Prepare Seeds and Start Phoenix
+
+```
+docker exec -it absinthe_tutorial /bin/bash
+
+cd absinthe_tutorial-master/
+mix deps.get
+mix ecto.migrate
+
+mix phx.server
+```
+
+## Access GraphiQL
+
+- http://localhost:3001/api/graphiql
+
