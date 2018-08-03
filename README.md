@@ -40,3 +40,15 @@ mix phx.server
 
 - http://localhost:3001/api/graphiql
 
+query sample
+
+```
+{
+  posts {
+    id
+    title
+    body
+  }
+}
+```
+
