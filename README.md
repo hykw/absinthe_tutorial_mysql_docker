@@ -13,3 +13,13 @@ MYUID=${UID} docker-compose up -d --build --force-recreate
 Notice: Since `containers/mysql/varlib` directory is the volume of `/var/lib/mysql` in mysql environment, the uid of the directory differs to your account's uid. In order to rebuild the docker images, you need to adjust the permission to the one in your REAL environment.
 
 One of the easiest ways just removes the directory with `sudo rm -rf containers/mysql/varlib`, and rebuild the images.  Moving the directory to somewhere, say `/tmp`, rebuild the images, and then replace the directory(`containers/mysql/varlib`) with the one(`/tmp/varlib`) also helps.
+
+
+### Prepare Phoenix Environment
+
+```
+docker exec -it absinthe_tutorial /bin/bash
+
+mix archive.install https://github.com/phoenixframework/archives/raw/master/phoenix_new.ez
+```
+
