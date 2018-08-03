@@ -31,6 +31,7 @@ docker exec -it absinthe_tutorial /bin/bash
 cd absinthe_tutorial-master/
 mix deps.get
 mix ecto.migrate
+mix run priv/repo/seeds.exs
 
 mix phx.server
 ```
