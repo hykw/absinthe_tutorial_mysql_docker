@@ -1,0 +1,57 @@
+version: "2"
+
+services:
+  absinthe_tutorial_mysql:
+    image: mysql:5.7
+    tty: true
+    container_name: "absinthe_tutorial_mysql"
+
+    build:
+      context: ./containers/mysql
+
+    ports:
+      - "3002:3306"
+
+    networks:
+      vpcbr:
+        ipv4_address: 10.5.0.2
+
+    environment:
+      MYSQL_ROOT_PASSWORD: "password"
+
+    volumes:
+      - "./containers/mysql/varlib:/var/lib/mysql"
+
+  absinthe_tutorial:
+    tty: true
+    container_name: "absinthe_tutorial"
+
+    build:
+      context: ./containers/phoenix
+      args:
+        USER: ${USER}
+        MYUID: ${MYUID}
+        PORT: 3001
+        ERL_VER: 20.2
+        WORKDIR: "/absinthe_tutorial/"
+    ports:
+      - "3001:3001"
+    networks:
+      vpcbr:
+        ipv4_address: 10.5.0.4
+    volumes:
+      - .:/absinthe_tutorial/
+      - ~/.absinthe_tutorial_mix:/userhome/.mix
+    depends_on:
+      - absinthe_tutorial_mysql
+    links:
+      - absinthe_tutorial_mysql
+
+
+networks:
+  vpcbr:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 10.5.0.0/24
+          gateway: 10.5.0.1
