@@ -37,7 +37,7 @@ defmodule Blog.Mixfile do
       {:phoenix_pubsub, "~> 1.0"},
       {:phoenix_ecto, "~> 3.2"},
       {:ecto, "~> 2.2.6"},
-      {:postgrex, ">= 0.0.0"},
+      {:mariaex, "~> 0.8.4"},
       {:gettext, "~> 0.11"},
       {:cowboy, "~> 1.0"},
       {:absinthe, "~> 1.4"},
