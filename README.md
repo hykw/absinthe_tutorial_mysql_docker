@@ -1,5 +1,5 @@
 # absinthe_tutorial_mysql_docker
-Absinthe Tutorial Code(https://github.com/absinthe-graphql/absinthe_tutorial) works with PostgreSQL. This is one of the modified version that works with MySQL in a docker env.
+[Absinthe Tutorial Code](https://github.com/absinthe-graphql/absinthe_tutorial) works with PostgreSQL. This is one of the modified version that works with MySQL in a docker env.
 
 ## How to prepare the environment
 
